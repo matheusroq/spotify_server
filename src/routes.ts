@@ -5,6 +5,7 @@ const router = Router();
 
 const auhtorizationController = new AuthorizationController();
 
+router.get('/login', auhtorizationController.login);
 router.post('/auth', auhtorizationController.getAccess);
 
 export { router };

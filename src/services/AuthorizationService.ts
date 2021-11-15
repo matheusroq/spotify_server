@@ -9,7 +9,7 @@ interface AuthResponse {
 }
 
 class AuthorizationService {
-  async auth(code: string): Promise<AuthResponse> {
+  auth(code: string): Promise<AuthResponse> {
     const url = `https://accounts.spotify.com/api/token`;
     return axios
       .post<AuthResponse>(url, null, {

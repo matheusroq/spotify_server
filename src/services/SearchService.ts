@@ -2,8 +2,11 @@ import axios from 'axios';
 import { SearchResponse } from '../types/search';
 
 class SearchService {
-  async search(accessToken: string): Promise<SearchResponse> {
-    const url = `https://api.spotify.com/v1/search?type=album,track&include_external=audio&q=name:beyonce`;
+  async search(
+    accessToken: string,
+    searchTerm: string,
+  ): Promise<SearchResponse> {
+    const url = `https://api.spotify.com/v1/search?type=album,track&include_external=audio&q=name:${searchTerm}`;
 
     return axios
       .get<SearchResponse>(url, {

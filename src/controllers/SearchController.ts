@@ -4,11 +4,11 @@ import { SearchService } from '../services/SearchService';
 class SearchController {
   async getSearch(request: Request, response: Response) {
     const searchService = new SearchService();
-    const { accessToken } = request.query;
+    const { accessToken, searchTerm } = request.query;
     try {
       let results;
-      if (typeof accessToken === 'string') {
-        results = await searchService.search(accessToken);
+      if (typeof accessToken === 'string' && typeof searchTerm === 'string') {
+        results = await searchService.search(accessToken, searchTerm);
       } else {
         throw new Error('Access token must be a string');
       }
